@@ -19,7 +19,6 @@ export const createChatNode = (openRouterService: OpenRouterService) => {
       );
       1;
       return {
-        ...state,
         messages: [
           response
             ? new AIMessage(response)
