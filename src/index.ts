@@ -20,7 +20,12 @@ function parseArgs(): { username?: string; unsafe: boolean; message?: string; pr
 
   let message: string | undefined;
   if (messageIndex !== -1 && args[messageIndex + 1]) {
-    message = args[messageIndex + 1];
+    const messageParts: string[] = [];
+    for (const arg of args.slice(messageIndex + 1)) {
+      if (arg.startsWith('--')) break;
+      messageParts.push(arg);
+    }
+    message = messageParts.join(' ').replace(/^['"]|['"]$/g, '');
   }
 
   return { username, unsafe, message, promptPath };
