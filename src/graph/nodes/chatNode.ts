@@ -17,7 +17,7 @@ export const createChatNode = (openRouterService: OpenRouterService) => {
         systemPrompt,
         userPrompt,
       );
-      1;
+
       return {
         messages: [
           response
